@@ -1,0 +1,92 @@
+﻿source_file,vendor_name,vendor_address,invoice_number,invoice_date,due_date,total_amount,currency,description,quantity,unit_price,total_price
+invoice_01_acme_consulting.pdf,ACME CONSULTING LLC,"123 Business Plaza, Suite 400
+New York, NY 10001",INV-2026-0842,2026-08-21,2026-09-20,12629.5,USD,Strategic Technology Roadmap,1,4500,4500
+invoice_01_acme_consulting.pdf,ACME CONSULTING LLC,"123 Business Plaza, Suite 400
+New York, NY 10001",INV-2026-0842,2026-08-21,2026-09-20,12629.5,USD,Cloud Architecture Review,1,3200,3200
+invoice_01_acme_consulting.pdf,ACME CONSULTING LLC,"123 Business Plaza, Suite 400
+New York, NY 10001",INV-2026-0842,2026-08-21,2026-09-20,12629.5,USD,DevOps Pipeline Setup,12,175,2100
+invoice_01_acme_consulting.pdf,ACME CONSULTING LLC,"123 Business Plaza, Suite 400
+New York, NY 10001",INV-2026-0842,2026-08-21,2026-09-20,12629.5,USD,Security Audit - Phase 1,1,1800,1800
+invoice_02_mueller_bau.pdf,Müller Bau GmbH,"Baustraße 17
+80331 München
+Deutschland",RE-2026-4419,2026-08-21,2026-09-20,40382.65,EUR,Dachsanierung Wohngebäude A,1,18500.0,18500.0
+invoice_02_mueller_bau.pdf,Müller Bau GmbH,"Baustraße 17
+80331 München
+Deutschland",RE-2026-4419,2026-08-21,2026-09-20,40382.65,EUR,Fassadenarbeiten - Komplett,1,12200.0,12200.0
+invoice_02_mueller_bau.pdf,Müller Bau GmbH,"Baustraße 17
+80331 München
+Deutschland",RE-2026-4419,2026-08-21,2026-09-20,40382.65,EUR,Entsorgung Bauschutt,3,145.0,435.0
+invoice_02_mueller_bau.pdf,Müller Bau GmbH,"Baustraße 17
+80331 München
+Deutschland",RE-2026-4419,2026-08-21,2026-09-20,40382.65,EUR,Gerüstbau & Abbau,1,2800.0,2800.0
+invoice_03_store_receipt.pdf,MIKE'S HARDWARE & SUPPLY,"847 Industrial Blvd
+Portland, OR 97201
+Tel: (503) 555-0142
+mikes@hardwaresupply.com",,2026-08-21,,345.17,USD,"3/4"" Plywood Sheet (4x8)",5,34.99,174.95
+invoice_03_store_receipt.pdf,MIKE'S HARDWARE & SUPPLY,"847 Industrial Blvd
+Portland, OR 97201
+Tel: (503) 555-0142
+mikes@hardwaresupply.com",,2026-08-21,,345.17,USD,"Deck Screws 2"" (5lb box)",2,24.5,49.0
+invoice_03_store_receipt.pdf,MIKE'S HARDWARE & SUPPLY,"847 Industrial Blvd
+Portland, OR 97201
+Tel: (503) 555-0142
+mikes@hardwaresupply.com",,2026-08-21,,345.17,USD,Latex Paint - Eggshell White,3,28.0,84.0
+invoice_03_store_receipt.pdf,MIKE'S HARDWARE & SUPPLY,"847 Industrial Blvd
+Portland, OR 97201
+Tel: (503) 555-0142
+mikes@hardwaresupply.com",,2026-08-21,,345.17,USD,Paint Roller Set (3pk),1,12.99,12.99
+invoice_03_store_receipt.pdf,MIKE'S HARDWARE & SUPPLY,"847 Industrial Blvd
+Portland, OR 97201
+Tel: (503) 555-0142
+mikes@hardwaresupply.com",,2026-08-21,,345.17,USD,Drop Cloth (9x12),2,8.49,16.98
+invoice_03_store_receipt.pdf,MIKE'S HARDWARE & SUPPLY,"847 Industrial Blvd
+Portland, OR 97201
+Tel: (503) 555-0142
+mikes@hardwaresupply.com",,2026-08-21,,345.17,USD,Mineral Spirits (1qt),1,7.25,7.25
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Ocean Freight - LCL Shanghai→LB,1,2850.0,2850.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Ocean Freight - LCL Shenzhen→LB,1,2650.0,2650.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Ocean Freight - FCL Ningbo→LB,1,4200.0,4200.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Customs Brokerage Fee,3,425.0,1275.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,ISF Filing,3,75.0,225.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Port Drayage - Shanghai shipment,1,680.0,680.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Port Drayage - Shenzhen shipment,1,620.0,620.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Port Drayage - Ningbo shipment,1,750.0,750.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Warehouse Storage (Week 1),3,185.0,555.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Warehouse Storage (Week 2),3,185.0,555.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Warehouse Storage (Week 3),3,185.0,555.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Crating & Packaging,3,320.0,960.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Cargo Insurance (110% CIF),1,1240.0,1240.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Documentation Fee,3,45.0,135.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,AMS Filing,3,35.0,105.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Chassis Fee,3,125.0,375.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Fuel Surcharge,1,890.0,890.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Peak Season Surcharge,1,1100.0,1100.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Detention - MSCU7723411,2,185.0,370.0
+invoice_04_multi_page.pdf,PACIFIC LOGISTICS & FREIGHT,"2200 Harbor Way
+Long Beach, CA 90802",PLF-2026-Q3-8847,2026-08-15,2026-09-14,20290.0,USD,Demurrage - FCLU9987123,1,210.0,210.0
+invoice_05_messy_freelance.pdf,J.D. Creative Services,,JD-086,2026-08-21,,11302.62,USD,Logo Concepts (3 rounds),1,1200.0,1200.0
+invoice_05_messy_freelance.pdf,J.D. Creative Services,,JD-086,2026-08-21,,11302.62,USD,Brand Guidelines (32pp PDF),1,2400.0,2400.0
+invoice_05_messy_freelance.pdf,J.D. Creative Services,,JD-086,2026-08-21,,11302.62,USD,Website Design - Homepage,1,1800.0,1800.0
+invoice_05_messy_freelance.pdf,J.D. Creative Services,,JD-086,2026-08-21,,11302.62,USD,Website Design - 5 interior pages,5,700.0,3500.0
+invoice_05_messy_freelance.pdf,J.D. Creative Services,,JD-086,2026-08-21,,11302.62,USD,Mobile responsive adaptations,1,950.0,950.0
+invoice_05_messy_freelance.pdf,J.D. Creative Services,,JD-086,2026-08-21,,11302.62,USD,Client revisions (12 hrs @ $150/hr),12,150.0,1800.0
+invoice_05_messy_freelance.pdf,J.D. Creative Services,,JD-086,2026-08-21,,11302.62,USD,Stock photo licensing,1,247.5,247.5
