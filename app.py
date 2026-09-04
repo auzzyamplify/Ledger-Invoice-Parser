@@ -1,20 +1,16 @@
 import os
 import json
 import base64
+import csv
 import io
 import re
 from datetime import datetime
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from dotenv import load_dotenv
 from mistralai.client import Mistral
 import streamlit as st
 
 load_dotenv()
-api_key = st.secrets.get("MISTRAL_API_KEY") or os.environ.get("MISTRAL_API_KEY")
-if not api_key:
-    st.error("MISTRAL_API_KEY not found. Add it to Streamlit secrets.")
-    st.stop()
-client = Mistral(api_key=api_key)
+client = Mistral(api_key=os.environ.get("MISTRAL_API_KEY"))
 
 st.set_page_config(page_title="Invoice Parser", layout="wide")
 st.title("📄 Invoice Parser")
@@ -39,78 +35,52 @@ def normalize_date(date_str):
             continue
     return date_str
 
-def process_single_invoice(pdf_bytes, filename):
-    """Process one invoice: OCR + extraction."""
-    try:
-        b64 = base64.b64encode(pdf_bytes).decode("utf-8")
-        
-        ocr = client.ocr.process(
-            model="mistral-ocr-latest",
-            document={"type": "document_url", "document_url": f"data:application/pdf;base64,{b64}"}
-        )
-        raw_text = "\n\n".join([p.markdown for p in ocr.pages])
-        
-        chat = client.chat.complete(
-            model="mistral-small-latest",
-            messages=[
-                {"role": "system", "content": """Extract invoice/receipt data as JSON.
+def process_pdf(pdf_bytes, filename):
+    b64 = base64.b64encode(pdf_bytes).decode("utf-8")
+    
+    ocr = client.ocr.process(
+        model="mistral-ocr-latest",
+        document={"type": "document_url", "document_url": f"data:application/pdf;base64,{b64}"}
+    )
+    raw_text = "\n\n".join([p.markdown for p in ocr.pages])
+    
+    chat = client.chat.complete(
+        model="mistral-small-latest",
+        messages=[
+            {"role": "system", "content": """Extract invoice/receipt data as JSON.
 Fields: vendor_name, vendor_address, invoice_number, invoice_date, due_date, total_amount (number), currency (3-letter code), line_items (array: description, quantity, unit_price, total_price).
 Use null for missing fields. Return ONLY raw JSON."""},
-                {"role": "user", "content": f"Document:\n\n{raw_text}"}
-            ],
-            response_format={"type": "json_object"}
-        )
-        
-        data = json.loads(chat.choices[0].message.content)
-        data["source_file"] = filename
-        return {"status": "success", "data": data}
-        
-    except Exception as e:
-        return {"status": "error", "filename": filename, "error": str(e)}
+            {"role": "user", "content": f"Document:\n\n{raw_text}"}
+        ],
+        response_format={"type": "json_object"}
+    )
+    
+    data = json.loads(chat.choices[0].message.content)
+    data["source_file"] = filename
+    return data
 
 # File uploader
 uploaded_files = st.file_uploader("Upload PDF invoices", type=["pdf"], accept_multiple_files=True)
 
 if uploaded_files:
     all_records = []
-    errors = []
+    progress = st.progress(0)
     
-    # Progress bar
-    progress_text = st.empty()
-    progress_bar = st.progress(0)
-    progress_text.text(f"Processing 0/{len(uploaded_files)} invoices...")
-    
-    # Process all invoices in parallel using threads
-    with ThreadPoolExecutor(max_workers=5) as executor:
-        # Submit all jobs
-        future_to_file = {
-            executor.submit(process_single_invoice, uf.read(), uf.name): uf.name 
-            for uf in uploaded_files
-        }
+    for i, uploaded_file in enumerate(uploaded_files):
+        progress.progress((i) / len(uploaded_files), text=f"Processing {uploaded_file.name}...")
         
-        completed = 0
-        for future in as_completed(future_to_file):
-            filename = future_to_file[future]
-            result = future.result()
-            completed += 1
-            
-            progress_bar.progress(completed / len(uploaded_files))
-            progress_text.text(f"Processing {completed}/{len(uploaded_files)} invoices...")
-            
-            if result["status"] == "success":
-                all_records.append(result["data"])
-                st.success(f"✅ {result['data'].get('vendor_name', 'Unknown')} — {result['data'].get('currency', '???')} {result['data'].get('total_amount', 'N/A')}")
-            else:
-                errors.append(result)
-                st.error(f"❌ {filename}: {result['error']}")
+        try:
+            data = process_pdf(uploaded_file.read(), uploaded_file.name)
+            all_records.append(data)
+            st.success(f"✅ {data.get('vendor_name', 'Unknown')} — {data.get('currency', '???')} {data.get('total_amount', 'N/A')}")
+        except Exception as e:
+            st.error(f"❌ {uploaded_file.name}: {e}")
+        
+        progress.progress((i + 1) / len(uploaded_files))
     
-    progress_text.empty()
-    progress_bar.empty()
-    
-    # Show results
+    # Flatten to DataFrame
     if all_records:
         import pandas as pd
-        
         csv_rows = []
         for record in all_records:
             base = {
@@ -135,6 +105,7 @@ if uploaded_files:
         st.subheader("Extracted Data")
         st.dataframe(df, use_container_width=True)
         
+        # Download button
         csv_buffer = io.StringIO()
         df.to_csv(csv_buffer, index=False, encoding="utf-8-sig")
         st.download_button(
@@ -144,9 +115,7 @@ if uploaded_files:
             mime="text/csv"
         )
         
+        # Show raw JSON for each
         with st.expander("View Raw JSON"):
             for record in all_records:
                 st.json(record)
-    
-    if errors:
-        st.warning(f"{len(errors)} invoice(s) failed to process.")
